@@ -1,0 +1,519 @@
+@import "./nullstyle.scss";
+
+@font-face {
+   font-family: 'Muli';
+   src: url('../fonts/Muli-Regular.eot');
+   src: local('☺'), url('../fonts/Muli-Regular.woff') format('woff'), 
+                    url('../fonts/Muli-Regular.ttf') format('truetype'), 
+                    url('../fonts/Muli-Regular.svg') format('svg');
+   font-weight: 300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Muli';
+   src: url('../fonts/Muli-Bold.eot');
+   src: local('☺'), url('../fonts/Muli-Bold.woff') format('woff'), 
+                    url('../fonts/Muli-Bold.ttf') format('truetype'), 
+                    url('../fonts/Muli-Bold.svg') format('svg');
+   font-weight: 700;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Muli';
+   src: url('../fonts/Muli-ExtraBold.eot');
+   src: local('☺'), url('../fonts/Muli-ExtraBold.woff') format('woff'), 
+                    url('../fonts/Muli-ExtraBold.ttf') format('truetype'), 
+                    url('../fonts/Muli-ExtraBold.svg') format('svg');
+   font-weight: 800;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Muli';
+   src: url('../fonts/Muli-Black.eot');
+   src: local('☺'), url('../fonts/Muli-Black.woff') format('woff'), 
+                    url('../fonts/Muli-Black.ttf') format('truetype'), 
+                    url('../fonts/Muli-Black.svg') format('svg');
+   font-weight: 900;
+   font-style: normal;
+}
+
+body {font-family: Muli, Helvetica, Arial, sans-serif;}
+
+.wrapper {
+   display: flex;
+   // display: -ms-flex;
+   flex-direction: column;
+   // -ms-flex-direction: column;
+   height: 100%;
+   padding: 100px 20px 0px;
+   &_blue{
+      background: rgb(255,255,255);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(214,237,242,0.5) 100%);
+   }
+}
+
+.container {
+   max-width: 1430px;
+   margin: 0 auto;
+   height: inherit;
+
+}
+
+.title {
+   @media screen and (max-width: 1022px) {
+      max-width: 550px;
+   }
+   & h2 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #191b1c;
+      @media screen and (max-width: 1195px) {
+         font-size: 36px;
+      }
+      @media screen and (max-width: 768px) {
+         font-size: 24px;
+      }
+   }
+}
+
+.subtitle {
+   max-width: 420px;
+   margin-bottom: 40px;
+   font-size: 18px;
+   font-weight: 300;
+   line-height: 1.5;
+   color: #191b1c;
+   @media screen and (max-width: 1195px){
+      max-width: 400px;
+   }
+   @media screen and (max-width: 768px) {
+      font-size: 16px;
+      max-width: 100%;
+   }
+}
+
+.form {
+   max-width: 400px;
+   @media screen and (max-width: 768px){
+      max-width: 100%;
+   }
+}
+
+.label {
+   display: inline-block;
+   position: relative;
+   z-index: 4;
+   top: -90px;
+   font-size: 18px;
+   color: #666b6c;
+   margin-bottom: 30px;
+}
+
+.input {
+   padding: 1px 15px;
+   border: 1px solid #9D9F9F;
+   border-radius: 6px;
+   width: 100%;
+   height: 60px;
+   font-size: 18px;
+   color: #272A2F;
+   &__select {
+      color: #9D9F9F;
+      cursor: pointer;
+      & option:not(:disabled) {
+         color: #272A2F;
+      }
+   }
+   &:focus {
+      border-color: rgba(0,172,205, 0.75);
+   }
+   &_error {
+      &:invalid {
+         border-color: rgb(254,16,16);
+         & + .label {color: rgb(254,16,16);}
+      }
+      &:not(:checked) {
+         & + p:before {
+            border-color: rgb(254,16,16);
+         }
+      }
+   }
+}
+
+.checkbox {
+   display: flex;
+   align-items: center;
+   position: relative;
+   top: -35px;
+   line-height: 1.5;
+   &_error:not(:checked) {
+      & + p:before {
+         border-color: rgb(254,16,16);
+      }
+   }
+   & input {
+      position: relative;
+      z-index: 4;
+      opacity: 0;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      &:checked {
+         & + p:before {
+            border-color: #00accd;
+            background-image: url('../img/icon.png');
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-position: center;
+         }
+      }
+   }
+   & p:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 8px;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border: 1px solid #9D9F9F;
+      border-radius: 3px;
+      @media screen and (max-width: 1196px) {
+         top: 3px;
+      }
+   }
+}
+
+.button {
+   display: block;
+   width: 200px;
+   height: 60px;
+   border-radius: 5px;
+   background-color: #f2f9fb;
+   font-size: 18px;
+   font-weight: 800;
+   color: #fff;
+   &_off {
+      background-color: #9FBBC1;
+   }
+   &_on {
+      background-color: #00accd;
+      cursor: pointer;
+   }
+}
+
+.text {
+   font-size: 14px;
+   color: #191b1c;
+   & a{
+      color: #00accd;
+   }
+   @media screen and (max-width: 1196px) {
+      font-size: 12px;
+   }
+}
+
+.header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 20;
+   width: 100%;
+   padding: 0 20px;
+   background-color: #fff;
+   -webkit-box-shadow: 0px 7px 13px -3px rgba(0,0,0,0.19);
+   -moz-box-shadow: 0px 7px 13px -3px rgba(0,0,0,0.19);
+   box-shadow: 0px 7px 13px -3px rgba(0,0,0,0.19);
+
+   &__body{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      height: 70px;
+      @media screen and (max-width: 1195px) {
+         height: 60px;
+      }
+      @media screen and (max-width: 769px) {
+         height: 50px;
+      }
+   }
+   &__logo {
+      flex: 0 0 100%;
+      z-index: 3;
+      padding-right: 50px;
+      @media screen and (max-width: 769px) {
+         flex: 0 0 180px;
+      }
+      & img{
+         display: block;
+         max-width: 100%;
+      }
+   }
+}
+
+.main {
+   &__title {
+      display: inline-block;
+      max-width: 620px;
+      & h1 {
+         font-size: 64px;
+         color: #00accd;
+         font-weight: 800;
+         line-height: 1.15;
+         margin-bottom: 20px;
+         @media screen and (max-width: 768px){
+            font-size: 40px;
+            max-width: 300px;
+         }
+      }
+      &_secondary {
+
+
+      }
+   }
+
+   &__image {
+      float: right;
+      max-width: 650px;
+      margin-bottom: 30px;
+      @media screen and (max-width: 1349px) {
+         float: none;
+         max-width: 560px;
+      }
+      @media screen and (max-width: 769px){
+         max-width: 100%;
+      }
+      & img{
+         display: block;
+         max-width: 100%;
+      }
+   }
+
+   &__form {}
+
+   &__label {}
+
+   &__input-email {}
+
+   &__input-pass {
+   }
+
+   &__forgot-pass {
+      margin-bottom: 60px;
+   }
+
+   &__button {
+      margin-bottom: 25px;
+      color: #666b6c;
+   }
+
+   &__registration {
+      margin-bottom: 80px;
+   }
+}
+
+.secondary {
+   flex: 1 1 auto;
+   &__title {
+      max-width: 1400px;
+      margin-bottom: 100px;
+      & h2 {
+         margin: 20px 0 20px;
+      }
+      & p {
+         max-width: 650px;
+         & span {
+            display: inline-block;
+            @media screen and (max-width: 768px) {
+               display: inline;
+            }
+         }
+      }
+   }
+
+   &__form {}
+   
+   &__input-email {
+      &:invalid:not(:placeholder-shown) {
+         border-color: rgb(254,16,16);
+         & + label {color: rgb(254,16,16);}
+      }
+      &:valid ~ input {
+         background-color: #00accd;
+         cursor: pointer;
+      }
+   }
+
+   &__label {
+      margin-bottom: 70px;
+   }
+
+   &__button {
+      background-color: #9FBBC1;
+      
+   }
+}
+
+.registration {
+   flex: 1 1 auto;
+   // -ms-flex: 1 1 auto;
+   &__title {
+      margin-bottom: 60px;
+      & h2 {
+         margin: 0 0 20px;
+      }
+   }
+   &__form {
+      max-width: 100%;
+      margin-bottom: 50px;
+      & form {
+         display: grid;
+         display: -ms-grid;
+         grid-template: [start] "email f-name country" [row2]
+                        [row2]  "pass l-name code"      [row3]
+                        [row3]  "phone sex checkbox"    [row4]
+                        [row4]  "phone birthday button" [end] 
+                        / minmax(200px, 400px) minmax(200px, 400px) minmax(200px, 400px);
+         column-gap: 80px;
+         -ms-column-gap: 80px;
+         @media screen and (max-width: 1196px) {
+            column-gap: 20px;
+            grid-template: [start]  "email  sex "      [row2]
+                            [row2]  "pass   birthday"   [row3]
+                            [row3]  "phone  country"   [row4]
+                            [row4]  "f-name code"     [row5] 
+                            [row5]  "l-name checkbox" [row6]
+                            [row6]  "l-name button"   [end] / 1fr 1fr;
+         }
+         @media screen and (max-width: 769px) {
+            display: block;
+         }
+         -ms-grid-columns: 400px;
+      }
+   }
+
+   &__input-email {
+      grid-area: email;
+   }
+
+   &__label {
+   }
+
+   &__input-pass {
+      grid-area: pass;
+   }
+
+   &__input-phone {
+      grid-area: phone;
+      & input {
+      -moz-appearance:textfield;
+      }
+      & input::-webkit-outer-spin-button {
+         -webkit-appearance: none;
+         margin: 0;
+      }
+      & input::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+         margin: 0;
+      }
+   }
+
+   &__input-first-name {
+      grid-area: f-name;
+   }
+
+   &__input-last-name {
+      grid-area: l-name;
+   }
+
+   &__input-sex {
+      grid-area: sex;
+   }
+
+   &__input-date-birth {
+      grid-area: birthday;
+   }
+
+   &__input-country {
+      grid-area: country;
+   }
+
+   &__input-code {
+      grid-area: code;
+   }
+
+   &__checkbox {
+      grid-area: checkbox;
+      @media screen and (max-width: 1196px) {
+         margin-bottom: 40px;
+      }
+   }
+
+   &__button {
+      grid-area: button;
+      & input {
+         margin-bottom: 25px;
+      }
+   }
+}
+
+.footer {
+   display: block;
+   -ms-flex: 0 0 100px;
+   padding: 0 20px;
+   font-size: 14px;
+   color: #666b6c;
+
+   &__border {
+      border-top: 1px solid #9D9F9F;
+      min-height: 100px;
+      padding: 30px 0 0px 0;
+   }
+
+   &__logo {
+      display: inline-block;
+      margin-bottom: 10px;
+
+      & img{
+         max-width: 85%;
+         @media screen and (max-width: 769px) {
+            max-width: 65%;
+         }
+      }
+   }
+   &__policy {
+      display: inline-block;
+      width: 50%;
+      margin-bottom: 10px;
+      @media screen and (max-width: 769px) {
+         display: block;
+         font-size: 12px;
+         margin-bottom: 15px;
+      }
+      & a {
+         position: relative;
+         top: 10px;
+         display: block;
+         color: #000;
+      }
+   }
+   &__copyrite {
+      display: inline-block;
+      position: relative;
+      top: 10px;
+      margin-bottom: 30px;
+      @media screen and (max-width: 769px) {
+         display: block;
+         max-width: 280px;
+         font-size: 12px;
+         line-height: 1.5;
+      }
+   }
+}
