@@ -1,1 +1,5 @@
-sources
+sources/dist/
+sources/dist/js/
+sources/dist/css/
+sources/dist/images/
+sources/dist/fonts/
